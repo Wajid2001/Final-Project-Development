@@ -21,7 +21,7 @@ const App = () => {
 	}, []);
 	return (
 		<div>
-			<h1 class='font-bold text-7xl text-center '>Hi, {username}</h1>
+			<h1 className='font-bold text-7xl text-center '>Hi, {username}</h1>
 			<br />
 			<br />
 			<br />

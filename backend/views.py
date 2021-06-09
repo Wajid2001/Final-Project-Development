@@ -72,6 +72,7 @@ def signOut(request):
 def check_authentication_status(request):
     if request.user.is_authenticated:
         return JsonResponse({"authenticated" : True,
+                             "userImage": request.user.userImage.url,
                              "username" : request.user.username,
                              "email": request.user.email,
                              "firstName": request.user.first_name,
