@@ -1,6 +1,6 @@
 import React from "react";
 
-require("../static/index.scss");
+require("../static/layout.scss");
 
 export const BrandLogoImg = () => {
 	return (
