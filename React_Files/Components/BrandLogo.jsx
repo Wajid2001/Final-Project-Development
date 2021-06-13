@@ -7,7 +7,7 @@ export const BrandLogoImg = () => {
 		<>
 			<img
 				className='mx-auto h-32 w-auto'
-				src='./static/frontend/img/logo.svg'
+				src='./static/frontend/svg/logo.svg'
 				alt='JUHS Logo'
 			/>
 		</>
@@ -23,7 +23,7 @@ const BrandLogo = () => {
 		>
 			<img
 				className='brandLogo-img'
-				src='./static/frontend/img/logo.svg'
+				src='./static/frontend/svg/logo.svg'
 			/>
 			<div className='brandLogo-text my-auto '>
 				<div className='mx-1 my-auto'>

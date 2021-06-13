@@ -6,7 +6,7 @@ import { BrowserRouter, NavLink } from "react-router-dom";
 
 import Header from "./Components/Header";
 
-require("./static/index.scss");
+require("./static/layout.scss");
 
 class MainPage extends Component {
 	render() {

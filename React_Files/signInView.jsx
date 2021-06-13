@@ -4,7 +4,7 @@ import { LockClosedIcon } from "@heroicons/react/solid";
 
 import { BrandLogoImg } from "./Components/BrandLogo";
 
-require("./static/index.scss");
+require("./static/layout.scss");
 
 const SignInForm = () => {
 	// This will fetch csrf token from request headers

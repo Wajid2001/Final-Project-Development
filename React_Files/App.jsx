@@ -4,7 +4,7 @@ import ReactDOM from "react-dom";
 
 const Header = lazy(() => import("./Components/Header"));
 
-require("./static/index.scss");
+require("./static/layout.scss");
 
 const App = () => {
 	const [username, setName] = useState("You Need to Sign in");
