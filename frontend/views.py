@@ -1,3 +1,5 @@
+from django.http.response import  HttpResponseRedirect
+from django.urls import reverse
 from django.shortcuts import render
 
 
@@ -14,8 +16,15 @@ def loadFile(request, filename = 'App'):
 
 
 def index(request):
-    return loadFile(request, filename='Dashboard')
+    return HttpResponseRedirect(reverse("frontend:home"))  
+
+def home(request):
+    return loadFile(request, filename='Dashboard')  
 
 
 def signInView(request):
     return loadFile(request, filename='signInView')
+
+
+def dashboard(request):
+    return loadFile(request, filename='Dashboard')

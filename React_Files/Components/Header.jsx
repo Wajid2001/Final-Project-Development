@@ -18,7 +18,7 @@ const pages = [
 	{
 		name: "Home",
 		description: "JUHS Shaping the future of India",
-		href: "./",
+		href: "./home",
 		icon: HomeIcon,
 	},
 	{
