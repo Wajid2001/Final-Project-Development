@@ -81,6 +81,11 @@ const SignInForm = () => {
 				if (data.error) {
 					setSignInError(data.error);
 					setInputBorderClass("border-red-300 bg-red-50");
+				} else if (
+					location.search != "" &&
+					location.search.includes("next")
+				) {
+					location.replace(location.search.replace("?next=", "."));
 				} else {
 					location.replace("./");
 				}
