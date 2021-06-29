@@ -76,8 +76,7 @@ def check_authentication_status(request):
                              "username" : request.user.username,
                              "email": request.user.email,
                              "firstName": request.user.first_name,
-                             "lastName": request.user.last_name,
-                             "designation":request.user.get_designation_display()} , status=200)
+                             "lastName": request.user.last_name} , status=200)
     else:
         return JsonResponse({"authenticated" : False} , status=200)
 
@@ -96,7 +95,7 @@ def registerUserApi(request):
         print(f"\n\n\n{request.POST}\n\n\n")
 
         # Checking if the user is authenticated for doing this proccess
-        if request.user.is_authenticated and request.user.designation in ["A","P","T","St"]:
+        if request.user.is_authenticated :
             
             print(f"\n\n\n{request.POST}\n\n\n")
             data = json.loads(request.body)
@@ -104,7 +103,6 @@ def registerUserApi(request):
             # username = request.POST["username"]
             first_name = data["first_name"]
             last_name = data["last_name"]
-            designation = data["designation"]
             email = data["email"]
             password = data["password"]
 
@@ -117,7 +115,6 @@ def registerUserApi(request):
                 user = User.objects.create_user(username, email, password)
                 user.first_name = first_name
                 user.last_name = last_name
-                user.designation = designation
                 user.save()
 
             return JsonResponse({"Account" : True} , status=201)

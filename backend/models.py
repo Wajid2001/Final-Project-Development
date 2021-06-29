@@ -1,26 +1,42 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
+from django.db.models.fields.related import ForeignKey
 
 
-# Admin delete or partial delete is represented by a_del
+# Admin block the account is represented by block
 
 
 class User(AbstractUser):
     id = models.AutoField(primary_key=True)
     userImage = models.ImageField(upload_to='userImage/',default='../static/frontend/svg/user.svg')
-    DESIGNATIONS = (
-        ("A", "Admin"),
-        ("P","Principal"),
-        ("T","Teacher"),
-        ("S","Student"),
-        ("St","Staff"),
-        ("V","Visitor"),
-        ("O","Other")
-    )
-    designation = models.CharField(max_length=3, choices=DESIGNATIONS, default="O")
+    # DESIGNATIONS = (
+    #     ("A", "Admin"),
+    #     ("P","Principal"),
+    #     ("T","Teacher"),
+    #     ("S","Student"),
+    #     ("St","Staff"),
+    #     ("V","Visitor"),
+    #     ("O","Other")
+    # )
+    # designation = models.CharField(max_length=3, choices=DESIGNATIONS, default="O")
+    block = models.BooleanField(default=False)
 
     def __str__(self):
         return f"{self.username} {self.designation}"
+
+
+class Classroom(models.Model):
+    id = models.AutoField(primary_key=True)
+    number = models.IntegerField(default=0)
+    section = models.SmallIntegerField(default=1)
+    block = models.BooleanField(default=False)
+
+class Teacher(User):
+    classTeacherOf = models.ForeignKey(Classroom, on_delete=models.CASCADE, name="ClassTeachers")
+
+
+class Student(User):
+    className = models.ForeignKey(Classroom, on_delete=models.CASCADE, name="ClassStudents")
 
 
 # class Subjects(models.Model):
